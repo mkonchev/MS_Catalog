@@ -2,7 +2,7 @@ from sqlalchemy import create_engine, Column, Integer, String, Enum
 from sqlalchemy.orm import sessionmaker, declarative_base
 from app.models.Category import Category as CategoryEnum
 
-# Подключение к SQLite (файл создастся автоматически)
+
 SQLALCHEMY_DATABASE_URL = "sqlite:///./catalog.db"
 engine = create_engine(SQLALCHEMY_DATABASE_URL,
                        connect_args={"check_same_thread": False}
@@ -15,9 +15,10 @@ Base = declarative_base()
 class DBCatalogItem(Base):
     __tablename__ = "catalog_items"
 
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     name = Column(String)
     category = Column(Enum(CategoryEnum))
+    """ Нужен ли интенам? """
     price = Column(Integer)
 
 
