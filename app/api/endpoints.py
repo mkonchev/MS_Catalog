@@ -7,7 +7,7 @@ from typing import List
 
 router = APIRouter(prefix="/catalog", tags=['catalog'])
 
-
+# резделить по категории и каталог_итем
 @router.post("/", response_model=CatalogItem)
 def create_item(item: CatalogItem, db: Session = Depends(get_db)):
     db_item = DBCatalogItem(
@@ -26,7 +26,7 @@ def create_item(item: CatalogItem, db: Session = Depends(get_db)):
 #     return JSONResponse({'message': 'Welcome to the API'})
 
 
-@router.get("/item/{item_id}")
+@router.get("/{item_id}")
 def read_item(item_id: int, db: Session = Depends(get_db)):
     item = db.query(DBCatalogItem).filter(DBCatalogItem.id == item_id).first()
     if not item:
