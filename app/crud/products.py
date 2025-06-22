@@ -38,7 +38,7 @@ def update_product(
     return db_item
 
 
-def deleter_product(db: Session, product_id: int):
+def delete_product(db: Session, product_id: int):
     db_item = get_product(db, product_id)
     if db_item:
         db.delete(db_item)
