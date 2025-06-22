@@ -15,6 +15,14 @@ def get_products(db: Session):
     return db.query(models.Product).all()
 
 
+def get_products_category(db: Session, category: str):
+    return db.query(
+        models.Product
+        ).filter(
+        models.Product.category == category
+        ).all()
+
+
 def get_product(db: Session, product_id: int):
     return db.query(
         models.Product
