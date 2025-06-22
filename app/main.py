@@ -8,4 +8,4 @@ app.include_router(catalog_router)
 
 @app.get("/")
 def health_check():
-    return {"message": "Catalog"}
+    return {"message": "Catalog works"}
