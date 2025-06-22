@@ -1,9 +1,9 @@
 from typing import List
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from services.MS_Catalog.app.schemas import Catalog as schemas
-from services.MS_Catalog.app.db.database import SessionLocal
-from services.MS_Catalog.app.services.product_service import ProductService
+from app.schemas import Catalog as schemas
+from app.db.database import SessionLocal
+from app.services.product_service import ProductService
 
 
 router = APIRouter(prefix="/catalog", tags=['catalog'])

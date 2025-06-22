@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.api.endpoints import router as catalog_router
+from app.api.products import router as catalog_router
 
 app = FastAPI()
 

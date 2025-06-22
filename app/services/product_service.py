@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from fastapi import HTTPException
-from services.MS_Catalog.app.schemas import Catalog as schemas
-from services.MS_Catalog.app.crud import products as crud
+from app.schemas import Catalog as schemas
+from app.crud import products as crud
 
 
 class ProductService:

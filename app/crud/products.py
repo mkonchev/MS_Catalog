@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from services.MS_Catalog.app.schemas import Catalog as schemas
-from services.MS_Catalog.app.db import models
+from app.schemas import Catalog as schemas
+from app.db import models
 
 
 def create_product(db: Session, product: schemas.ProductCreate):
