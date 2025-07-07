@@ -1,5 +1,6 @@
 from sqlalchemy.orm import Session
 from app.schemas import Catalog as schemas
+# from app.schemas.models import Category
 from app.db import models
 
 
@@ -38,9 +39,10 @@ def update_product(
 ):
     db_item = get_product(db, product_id)
     if db_item:
-        db_item.name = upd_product.name,
-        db_item.category = upd_product.category,
-        db_item.price = upd_product.price,
+        db_item.name = upd_product.name
+        db_item.category = upd_product.category
+        # тут сверху ошибка
+        db_item.price = upd_product.price
         db.commit()
         db.refresh(db_item)
     return db_item

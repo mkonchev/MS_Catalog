@@ -5,13 +5,15 @@ from app.db.database import engine
 
 Base = declarative_base()
 
+# PRODUCT_CATEGORIES = ['clothes', 'food', 'another']
+
 
 class Product(Base):
     __tablename__ = "catalog_items"
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     name = Column(String)
-    category = Column(Enum(CategoryEnum))
+    category = Column(Enum(CategoryEnum, native_enum=False))
     price = Column(Integer)
 
 

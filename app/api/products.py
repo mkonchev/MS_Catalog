@@ -32,16 +32,16 @@ def read_all_items(db: Session = Depends(get_db)):
     return service.get_products()
 
 
-@router.get("/{category}", response_model=List[schemas.Product])
-def read_category_items(category: str, db: Session = Depends(get_db)):
-    service = ProductService(db)
-    return service.get_products_category(category)
-
-
-@router.get("/{item_id}")
+@router.get("/{item_id}", response_model=schemas.Product)
 def read_item(item_id: int, db: Session = Depends(get_db)):
     service = ProductService(db)
     return service.get_product(item_id)
+
+
+@router.get("/category/{category}", response_model=List[schemas.Product])
+def read_category_items(category: str, db: Session = Depends(get_db)):
+    service = ProductService(db)
+    return service.get_products_category(category)
 
 
 @router.get("/{item_id}/exists")
@@ -50,7 +50,7 @@ def item_exists(item_id: int, db: Session = Depends(get_db)):
     return service.product_exists(item_id)
 
 
-@router.put("/{item_id}", response_model=schemas.Product)
+@router.put("/{item_id}", response_model=schemas.ProductBase)
 def update_product(
     item_id: int,
     upd_item: schemas.ProductUpdate,

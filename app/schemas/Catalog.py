@@ -17,7 +17,7 @@ class ProductUpdate(ProductBase):
 
 
 class Product(ProductBase):
-    id: int = Field(..., description="ID заказа")
+    id: int = Field(..., description="ID товара")
 
     class Config:
         orm_mode = True
